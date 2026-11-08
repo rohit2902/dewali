@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF2B2" />
+      <stop offset="40%" stop-color="#E99A3A" />
+      <stop offset="80%" stop-color="#C6A15B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#581F2B" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DCCBA5" />
+      <stop offset="50%" stop-color="#C6A15B" />
+      <stop offset="100%" stop-color="#8C6B2E" />
+    </linearGradient>
+  </defs>
+  <!-- Diya Base -->
+  <path d="M14 38 C 14 50, 50 50, 50 38 C 42 42, 22 42, 14 38 Z" fill="url(#brassGrad)" />
+  <ellipse cx="32" cy="38" rx="18" ry="4" fill="#6A4D1A" />
+  <!-- Flame Outer Glow -->
+  <circle cx="32" cy="24" r="14" fill="url(#flameGlow)" opacity="0.6" />
+  <!-- Flame Core -->
+  <path d="M32 10 C 37 18, 38 24, 35 28 C 33 30, 31 30, 29 28 C 26 24, 27 18, 32 10 Z" fill="#FFF4D0" />
+  <path d="M32 14 C 35 20, 36 24, 34 27 C 33 28, 31 28, 30 27 C 28 24, 29 20, 32 14 Z" fill="#E99A3A" />
+</svg>

@@ -1,0 +1,155 @@
+/* ============================================
+   Stories Section Styling
+   ============================================ */
+
+.stories-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-midnight-dark);
+  color: var(--color-ivory);
+  overflow: hidden;
+}
+
+.stories-grid {
+  display: grid;
+  width: 100%;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .stories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .stories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.story-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 0;
+  border-radius: var(--radius-xl, 1rem);
+  background-color: var(--color-midnight);
+  border: 1px solid rgba(198, 161, 91, 0.2);
+  overflow: hidden;
+  transition: all var(--transition-base, 300ms ease);
+}
+
+.story-card:hover {
+  border-color: rgba(198, 161, 91, 0.5);
+  box-shadow: var(--shadow-glow, 0 0 20px rgba(198, 161, 91, 0.3));
+  transform: translateY(-4px);
+}
+
+.story-card__image-container {
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.story-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow, 500ms ease);
+}
+
+.story-card:hover .story-card__image {
+  transform: scale(1.05);
+}
+
+.story-card__badges {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.story-card__badge-tradition {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-full, 9999px);
+  background-color: rgba(88, 31, 43, 0.9);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.story-card__badge-region {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-full, 9999px);
+  background-color: rgba(16, 26, 43, 0.85);
+  color: var(--color-gold);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.story-card__body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.story-card__title {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: var(--text-2xl, 1.5rem);
+  color: var(--color-ivory);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.story-card__intro {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-champagne);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  word-break: break-word;
+}
+
+.story-card__action {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-md, 0.5rem);
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  color: var(--color-gold);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-weight: 600;
+  font-size: var(--text-sm, 0.875rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base, 300ms ease);
+  cursor: pointer;
+}
+
+.story-card__action:hover {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+  box-shadow: var(--shadow-glow, 0 0 15px rgba(198, 161, 91, 0.3));
+}
+

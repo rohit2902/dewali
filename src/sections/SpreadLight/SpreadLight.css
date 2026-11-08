@@ -1,0 +1,454 @@
+/* ============================================
+   Spread Light Section Styling
+   ============================================ */
+
+.spread-light-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-midnight-dark, #0b121e);
+  color: var(--color-ivory);
+  overflow: hidden;
+}
+
+/* Background Atmospheric Glows */
+.spread-light-section::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 500px;
+  background: radial-gradient(circle, rgba(233, 154, 58, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 1. Diya Courtyard */
+.diya-courtyard {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-midnight);
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  border-radius: var(--radius-2xl, 1.25rem);
+  box-shadow: var(--shadow-card, 0 10px 30px rgba(0, 0, 0, 0.5));
+  padding: 2rem 1.5rem;
+  max-width: 56rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .diya-courtyard {
+    padding: 2.5rem 2rem;
+  }
+}
+
+.diya-courtyard__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .diya-courtyard__header {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.diya-courtyard__title {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: var(--text-2xl, 1.75rem);
+  color: var(--color-gold);
+  line-height: 1.2;
+}
+
+.diya-courtyard__subtitle {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: rgba(220, 203, 165, 0.8);
+  margin-top: 0.25rem;
+}
+
+.diya-courtyard__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.diya-counter-badge {
+  padding: 0.4rem 0.875rem;
+  border-radius: var(--radius-full, 9999px);
+  background-color: rgba(198, 161, 91, 0.15);
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.diya-light-all-btn {
+  padding: 0.4rem 0.875rem;
+  border-radius: var(--radius-md, 0.5rem);
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.diya-light-all-btn:hover {
+  background-color: var(--color-gold-light, #dccba5);
+  transform: translateY(-1px);
+}
+
+/* 12 Diyas Grid */
+.diyas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding: 1rem 0;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .diyas-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .diyas-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.diya-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg, 0.75rem);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-base, 300ms ease);
+}
+
+.diya-slot:hover {
+  transform: scale(1.08);
+}
+
+.diya-flame-container {
+  margin-bottom: 0.25rem;
+  transition: all var(--transition-base, 300ms ease);
+}
+
+.diya-flame-container.is-lit {
+  opacity: 1;
+  transform: scale(1);
+  animation: flame-subtle-flicker 1.8s infinite ease-in-out alternate;
+}
+
+.diya-flame-container:not(.is-lit) {
+  opacity: 0.25;
+  transform: scale(0.75);
+  filter: grayscale(1);
+}
+
+.diya-image {
+  width: 3.5rem;
+  height: auto;
+  transition: all var(--transition-base, 300ms ease);
+}
+
+.diya-image.is-lit {
+  filter: brightness(1.15) drop-shadow(0 0 16px rgba(233, 154, 58, 0.6));
+}
+
+.diya-image:not(.is-lit) {
+  opacity: 0.35;
+  filter: grayscale(0.9) contrast(0.8);
+}
+
+@keyframes flame-subtle-flicker {
+  0% {
+    transform: scale(0.96) rotate(-1deg);
+    filter: drop-shadow(0 0 10px rgba(233, 154, 58, 0.7));
+  }
+  50% {
+    transform: scale(1.04) rotate(1deg);
+    filter: drop-shadow(0 0 16px rgba(233, 154, 58, 0.9));
+  }
+  100% {
+    transform: scale(1.0) rotate(0deg);
+    filter: drop-shadow(0 0 12px rgba(233, 154, 58, 0.8));
+  }
+}
+
+/* 2. Memory Sanctuary */
+.memory-sanctuary {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 4rem auto 0;
+  background-color: var(--color-midnight);
+  border: 1px solid rgba(198, 161, 91, 0.2);
+  border-radius: var(--radius-2xl, 1.25rem);
+  box-shadow: var(--shadow-card, 0 10px 30px rgba(0, 0, 0, 0.4));
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .memory-sanctuary {
+    padding: 2.5rem 2rem;
+  }
+}
+
+.memory-sanctuary__title {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: var(--text-2xl, 1.75rem);
+  color: var(--color-gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.memory-sanctuary__subtitle {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: rgba(220, 203, 165, 0.75);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.memory-prompt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.memory-prompt-chip {
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.memory-prompt-chip.is-active {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+  font-weight: 600;
+}
+
+.memory-prompt-chip:not(.is-active) {
+  background-color: var(--color-midnight-light);
+  color: var(--color-champagne);
+  border: 1px solid rgba(198, 161, 91, 0.2);
+}
+
+.memory-prompt-chip:not(.is-active):hover {
+  border-color: rgba(198, 161, 91, 0.5);
+}
+
+.memory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.memory-textarea {
+  width: 100%;
+  background-color: var(--color-midnight-light);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  border-radius: var(--radius-lg, 0.75rem);
+  padding: 0.875rem 1rem;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-ivory);
+  resize: vertical;
+  min-height: 5rem;
+  transition: border-color var(--transition-fast, 150ms ease);
+}
+
+.memory-textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.memory-form-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .memory-form-footer {
+    flex-direction: row;
+  }
+}
+
+.memory-input-author {
+  flex: 1;
+  background-color: var(--color-midnight-light);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  border-radius: var(--radius-lg, 0.75rem);
+  padding: 0.625rem 1rem;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-ivory);
+  transition: border-color var(--transition-fast, 150ms ease);
+}
+
+.memory-input-author:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.memory-submit-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius-lg, 0.75rem);
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.memory-submit-btn:hover:not(:disabled) {
+  background-color: var(--color-gold-light);
+}
+
+.memory-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Saved memories list */
+.saved-memories-container {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.15);
+}
+
+.saved-memories-heading {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.saved-memories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 15rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.saved-memory-card {
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md, 0.5rem);
+  background-color: rgba(22, 34, 53, 0.6);
+  border: 1px solid rgba(198, 161, 91, 0.1);
+  font-size: var(--text-xs, 0.75rem);
+}
+
+.saved-memory-card__quote {
+  color: var(--color-ivory);
+  font-style: italic;
+  margin-bottom: 0.375rem;
+  line-height: 1.5;
+}
+
+.saved-memory-card__author {
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+/* 3. Grand Finale Blessing */
+.grand-finale-blessing {
+  margin-top: 7rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.grand-finale-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 18px rgba(233, 154, 58, 0.7));
+}
+
+.grand-finale-shloka {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: var(--text-sm, 0.875rem);
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.grand-finale-title {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  color: var(--color-ivory);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.grand-finale-desc {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-base, 1rem);
+  color: var(--color-champagne);
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 640px) {
+  .grand-finale-desc {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+.grand-finale-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  background-color: rgba(22, 34, 53, 0.8);
+  color: var(--color-gold);
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(198, 161, 91, 0.15);
+}
+

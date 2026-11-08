@@ -1,0 +1,195 @@
+/* ============================================
+   Responsive Utilities — The Art of Light
+   ============================================ */
+
+/* ---- Global Content Container ----
+   Centered layout, max-width 1440px,
+   Responsive horizontal padding:
+     - 64px on desktop (>=1024px)
+     - 32px on tablet (768px - 1023px)
+     - 20px on mobile (<768px)
+*/
+.site-container {
+  width: 100%;
+  max-width: var(--max-width-wide, 1440px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+/* Breakpoints reference:
+   sm:  640px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+   2xl: 1536px
+*/
+
+/* ---- Hide / Show utilities ---- */
+
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+
+  .show-mobile {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  display: block;
+}
+
+.show-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none;
+  }
+
+  .show-desktop {
+    display: block;
+  }
+}
+
+/* ---- Responsive typography adjustments ---- */
+
+@media (max-width: 639px) {
+  h1 {
+    line-height: 1.15;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  body {
+    font-size: var(--text-sm);
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  body {
+    font-size: var(--text-base);
+  }
+}
+
+/* ---- Responsive spacing ---- */
+
+.section-padding {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.section-padding-sm {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .section-padding-sm {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
+/* ---- Responsive grid helpers ---- */
+
+.responsive-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+.responsive-grid-4 {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+/* ---- Touch-friendly targets ---- */
+
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ---- Reduced motion ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Container query support ---- */
+
+.container-query {
+  container-type: inline-size;
+}

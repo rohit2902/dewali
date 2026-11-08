@@ -1,0 +1,149 @@
+/* ============================================
+   Typography — The Art of Light
+   ============================================ */
+
+/* Base body */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-ivory);
+  background-color: var(--color-midnight);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings — Cormorant Garamond */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--color-ivory);
+}
+
+h1 {
+  font-size: var(--text-hero);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--text-5xl);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: var(--text-4xl);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--text-3xl);
+  font-weight: 500;
+}
+
+h5 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+}
+
+h6 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+/* Paragraph */
+p {
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-champagne);
+}
+
+/* Hindi typography */
+.hindi-heading {
+  font-family: var(--font-hindi-heading);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.hindi-body {
+  font-family: var(--font-hindi-body);
+  line-height: 1.8;
+}
+
+/* Color utility classes */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-ivory {
+  color: var(--color-ivory);
+}
+
+.text-champagne {
+  color: var(--color-champagne);
+}
+
+.text-saffron {
+  color: var(--color-saffron);
+}
+
+.text-burgundy {
+  color: var(--color-burgundy);
+}
+
+/* Font family utility classes */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-hindi-heading {
+  font-family: var(--font-hindi-heading);
+}
+
+.font-hindi-body {
+  font-family: var(--font-hindi-body);
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+::-moz-selection {
+  background-color: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+/* Links */
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold-light);
+}
+
+/* Small text */
+small {
+  font-size: var(--text-sm);
+  color: var(--color-champagne);
+}
+
+/* Blockquote */
+blockquote {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-gold-light);
+  border-left: 3px solid var(--color-gold);
+  padding-left: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
